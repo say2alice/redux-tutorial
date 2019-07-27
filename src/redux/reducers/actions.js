@@ -16,4 +16,4 @@ export const updateUser = (name) => ({
 	payLoad: {
 		user: name
 	}
-})
+});

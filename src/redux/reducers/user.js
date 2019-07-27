@@ -1,8 +1,7 @@
 export const userReducer = (state = '', action) => {
 	if (action.type === 'updateUser') {
-		return action.payload.user;
+		return action.payLoad.user;
 	} else {
 		return state;
 	}
-	// return state;
 }

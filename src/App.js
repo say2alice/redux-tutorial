@@ -9,14 +9,14 @@ function App(props) {
   return (
     <div className="App">
       <p> user: {props.user}</p>
-      <button onClick={() => props.updateUser('Jane')} title="Change Name"/>
+      <button onClick={() => props.updateUser('Jane')}>이름바꾸기</button>
     </div>
   );
 }
 // store에 props에 연결 subscribe
 const mapStateToProps = (state) => ({
-  products: state.products,
-  user: state.user
+  products: state.productReducer,
+  user: state.userReducer
 })
 
 // publish
