@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import connect from "react-redux/es/connect/connect";
+import {updateUser} from "./redux/reducers/actions";
 
-function App() {
+function App(props) {
+
+  console.log("props : ", props);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p> user: {props.user}</p>
+      <button onClick={() => props.updateUser('Jane')} title="Change Name"/>
     </div>
   );
 }
+// store에 props에 연결 subscribe
+const mapStateToProps = (state) => ({
+  products: state.products,
+  user: state.user
+})
 
-export default App;
+// publish
+// props : function
+const mapActionToProps = (dispatch) => ({
+  updateUser: (name) => dispatch(updateUser(name))
+})
+
+// 커링펑션, HoC 
+// 컴포지션 기법
+export default connect(mapStateToProps, mapActionToProps)(App);
+// export default App;

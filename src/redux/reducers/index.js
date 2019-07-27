@@ -6,3 +6,6 @@ export const allReducer = combineReducers(	{
 	productReducer,
 	userReducer
 });
+
+// productReducer(pin): []
+// userReducer(pin): ""

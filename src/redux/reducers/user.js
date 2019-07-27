@@ -1,9 +1,8 @@
 export const userReducer = (state = '', action) => {
-	switch (action.type) {
-		case 'updateUser':
-			return action.payLoad
-		default :
-			return state
+	if (action.type === 'updateUser') {
+		return action.payload.user;
+	} else {
+		return state;
 	}
 	// return state;
 }
